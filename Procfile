@@ -1,0 +1,1 @@
+web: java -jar target/calendar-1.0.jar
