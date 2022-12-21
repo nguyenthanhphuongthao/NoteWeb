@@ -96,9 +96,12 @@ public class calendarController {
 	}
 	
 	@GetMapping(value = {"/register"})
-	public ModelAndView displayRegister() {
+	public ModelAndView displayRegister(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("register");
+		if (session.getAttribute("alert") == "Sai tên đăng nhập hoặc mật khẩu!") {
+			session.removeAttribute("alert");
+		}
 		mv.addObject("account", new Account());
 		return mv;
 	}
