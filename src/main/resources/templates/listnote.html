@@ -21,7 +21,7 @@
 		</div>
 		<h2 class="dialog-header" style="text-align: center;"> All notes </h2>
 		<div class="formlist" th:each="note : ${notes}">
-			<span><a th:href="@{/detailnote-{id}(id=${note.id})}" class="titleNote" th:text="${note.title}"></a></span> 
+			<span style="width: 70%;"><a th:href="@{/detailnote-{id}(id=${note.id})}" class="titleNote" th:text="${note.title}"></a></span> 
 			<span style="font-size: 11px;" th:text="${#dates.format(note.date, 'HH:mm dd-MM-yyyy')}"></span>
 		</div>
 	</div>

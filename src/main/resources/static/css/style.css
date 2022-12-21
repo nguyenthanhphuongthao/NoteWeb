@@ -199,7 +199,6 @@ body {
 
 .container .title {
 	background-color: #ddd;
-	width: 940.635px;
 	border-radius: 10px;
 	height: 97px;
 	margin: 20px;
@@ -207,17 +206,9 @@ body {
 
 .container .describe {
 	background-color: #ddd;
-	width: 932.635px;
 	border-radius: 10px;
 	height: 320px;
 	margin: 20px;
-	width: 940.635px;
-}
-
-.title input {
-	margin-left: 20px;
-	width: 895px;
-	text-align: left;
 }
 
 .title textarea {
@@ -225,6 +216,7 @@ body {
 	margin-left: 20px;
 	width: 890px;
     height: 22px;
+    width: 96.3%;
 }
 
 .describe textarea {
@@ -242,6 +234,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	height: 40px;
+	width: 100%;
 }
 
 .formlist span {
@@ -283,5 +276,5 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 800px;
+    width: 100%;
 }
