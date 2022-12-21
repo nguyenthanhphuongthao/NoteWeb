@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vn" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script>
+	function dieu_huong() {
+		location.assign("/listnote");
+	}
+</script>
+</head>
+
+<body>
+    <div class="header">
+    	<div style="display: flex; align-items: center;">
+    		<span style="padding: 0 12px;" th:text="${'Welcome, ' + session.loginAccount.name}"></span>
+        	<span><a th:href="@{/logout}"><i class="fa fa-sign-out"></i></a></span>
+    	</div>
+        <div class="header-right">
+            <a th:href="@{/newnote}">NEW NOTE</a>
+            <a th:href="@{/listnote}">VIEW ALL NOTES</a>
+        </div>
+    </div>
+    <div class="dialog" id="dialog">
+        <h2 class="dialog-header" style="text-align: center;"> New note </h2>
+        <form class="form" id="form" th:action="@{/newnote}" th:object="${note}" method="POST">
+            <div class="container">
+                <div class="title">
+                <div style="display: flex; align-items: flex-end; justify-content: space-between;">
+                	<label class="form-label" style="margin-bottom: 10px; font-weight: bold;">Title</label>
+                	<p id="resultt" style="text-align: right; margin: 20px 30px 10px 20px; color: #737373;"></p>
+                </div>
+                    <textarea id="title" cols="100" rows="1" th:field="*{title}" required></textarea>
+                </div>
+               
+                <div class="describe">
+                <div style="display: flex; align-items: flex-end; justify-content: space-between;">
+                	<label class="form-label" style="margin-bottom: 10px; font-weight: bold;">Description</label>
+                    <p id="resultd" style="text-align: right; margin: 20px 30px 10px 20px; color: #737373;"></p>
+                </div>
+                    <textarea id="description" cols="100" rows="15" th:field="*{description}" required></textarea>
+                </div>
+                <div class="btn">
+                    <input type="button" value="Hủy" class="button" id="cancel-button" onclick="dieu_huong()">
+                    <input id="submit" type="submit" value="Tạo mới" class="button button-white">
+                </div>
+            </div>
+        </form>
+    </div>
+<script>
+	var myTextd = document.getElementById("description");
+	var resultd = document.getElementById("resultd");
+	var limitd = 2000;
+	resultd.textContent = 0 + "/" + limitd;
+
+	myTextd.addEventListener("input", function() {
+		var textLength = myTextd.value.length;
+		resultd.textContent = textLength + "/" + limitd;
+
+		if (textLength > limitd) {
+			myTextd.style.borderColor = "#ff2851";
+			resultd.style.color = "#ff2851";
+			document.getElementById('submit').disabled = true;
+		} else {
+			myTextd.style.borderColor = "#b2b2b2";
+			resultd.style.color = "#737373";
+			document.getElementById('submit').disabled = false;
+		}
+	});
+</script>
+<script>
+	var myText = document.getElementById("title");
+	var result = document.getElementById("resultt");
+	var limit = 200;
+	result.textContent = 0 + "/" + limit;
+
+	myText.addEventListener("input", function() {
+		var textLength = myText.value.length;
+		result.textContent = textLength + "/" + limit;
+
+		if (textLength > limit) {
+			myText.style.borderColor = "#ff2851";
+			result.style.color = "#ff2851";
+			document.getElementById('submit').disabled = true;
+		} else {
+			myText.style.borderColor = "#b2b2b2";
+			result.style.color = "#737373";
+			document.getElementById('submit').disabled = false;
+		}
+	});
+</script>
+</body>
+
+</html>

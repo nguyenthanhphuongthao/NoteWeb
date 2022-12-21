@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vn" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div class="header">
+		<div style="display: flex; align-items: center;">
+    		<span style="padding: 0 12px;" th:text="${'Welcome, ' + session.loginAccount.name}"></span>
+        	<span><a th:href="@{/logout}"><i class="fa fa-sign-out"></i></a></span>
+    	</div>
+		<div class="header-right">
+			<a th:href="@{/newnote}">NEW NOTE</a>
+			<a th:href="@{/listnote}">VIEW ALL NOTES</a>
+		</div>
+	</div>
+	<div class="dialog" id="dialog">
+		<div class="btn delete">
+			<h4 class="dialog-header" th:text="${'Date: ' + #dates.format(note.date, 'HH:mm dd-MM-yyyy')}"></h4>
+			<a th:href="@{/deletenote-{id}(id=${note.id})}"><input type="button" value="Delete note" class="button" style="width: 100%; background: red; border-color: red;"></a>
+		</div>
+		<form class="form" id="form">
+			<div class="form-container">
+				<label class="form-label" th:text="${note.title}" style="font-weight: bold; margin-bottom: 20px"></label>
+				<label class="form-label" th:text="${note.description}" style="margin-top: 0;"></label>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

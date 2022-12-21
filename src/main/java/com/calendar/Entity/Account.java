@@ -11,13 +11,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "account", catalog = "calendar")
+@Table(name = "account", catalog = "noteWeb")
 public class Account {
 	
 	private String username;
 	private String password;
 	private String name;
-	private Set<Event> events = new HashSet<Event>(0);
+	private Set<Note> notes = new HashSet<Note>(0);
 	
 	public Account() {
 	}
@@ -54,11 +54,11 @@ public class Account {
 	}
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "account")
-	public Set<Event> getEvents() {
-		return events;
+	public Set<Note> getNotes() {
+		return notes;
 	}
 
-	public void setEvents(Set<Event> events) {
-		this.events = events;
+	public void setNotes(Set<Note> notes) {
+		this.notes = notes;
 	}
 }

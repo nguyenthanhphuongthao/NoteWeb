@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vn" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<div style="display: flex; align-items: center;">
+    			<span style="padding: 0 12px;" th:text="${'Welcome, ' + session.loginAccount.name}"></span>
+        		<span><a th:href="@{/logout}"><i class="fa fa-sign-out"></i></a></span>
+    		</div>
+			<div class="header-right">
+				<a th:href="@{/newnote}">NEW NOTE</a>
+				<a th:href="@{/listnote}">VIEW ALL NOTES</a>
+			</div>
+		</div>
+		<h2 class="dialog-header" style="text-align: center;"> All notes </h2>
+		<div class="formlist" th:each="note : ${notes}">
+			<span><a th:href="@{/detailnote-{id}(id=${note.id})}" class="titleNote" th:text="${note.title}"></a></span> 
+			<span style="font-size: 11px;" th:text="${#dates.format(note.date, 'HH:mm dd-MM-yyyy')}"></span>
+		</div>
+	</div>
+
+</body>
+
+</html>
