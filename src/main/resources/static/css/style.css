@@ -194,21 +194,18 @@ body {
 .container .title {
 	background-color: #ddd;
 	border-radius: 10px;
-	height: 97px;
 	margin: 2%;
 }
 
 .container .describe {
 	background-color: #ddd;
 	border-radius: 10px;
-	height: 320px;
 	margin: 2%;
 }
 
 .title textarea {
 	resize: none;
 	margin: 0 2% 2% 2%;
-	width: 890px;
     width: 96%;
 }
 
@@ -225,12 +222,11 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 40px;
 	width: 100%;
 }
 
 .formlist span {
-	margin: 2%;
+	margin: 1%;
 }
 
 .formlist h4 {
